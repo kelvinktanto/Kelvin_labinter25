@@ -2,7 +2,7 @@
 index = 0
 
 while True:
-    user_input = input(f"Let's guess the secret word letter by letter!\nMasukkan huruf ke {index + 1}: ").lower()
+    user_input = input("Let's guess the secret word letter by letter! \n : ").lower()
     
     # Check if input is a single character and matches the current letter in the secret word
     if len(user_input) == 1 and user_input == secret_word[index]:
