@@ -1,4 +1,4 @@
-word_list = ("python", "java", "kotlin", "javascript")
+word_list = "python"
 
 print("H A N G M A N")
 print("Welcome to Hangman!")
@@ -35,4 +35,5 @@ while attempts > 0:
 else:
     print("You lost!")
     print(f"The word was: {chosen_word}")
+
 
