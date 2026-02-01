@@ -1,0 +1,49 @@
+def updatetext(secret_word, guessed, guess):
+    display = ""
+    for letter in secret_word:
+        if letter.lower() in guessed:
+            display += letter
+        else:
+            display += "_"
+
+    # feedback
+    if guess in secret_word.lower():
+        print("Good guess!")
+    else:
+        print("Sorry, that letter is not in the word.")
+        
+    return display
+
+
+def maingame(secret_word):
+    guessed = []
+    attempts = 6
+    print("Welcome to Hangman")
+
+    while attempts > 0:
+        guess = input("Please enter a letter: ").lower()
+
+        if guess in guessed:
+            print("You already guessed that letter. Try again.")
+            continue
+
+        guessed.append(guess)
+
+        display = updatetext(secret_word, guessed, guess)
+        print(f"Current word: {display}")
+
+        # win condition  
+        if display.lower() == secret_word.lower():
+            print(f"Congratulations! You've guessed the word: {secret_word}")
+            return
+
+        # lose condition
+        if guess not in secret_word.lower():
+            attempts -= 1
+            print(f"Incorrect guess. You have {attempts} attempts left.")
+
+    print(f"Game over! The word was: {secret_word}")
+            break
+
+# start the game
+maingame("Surabaya")
